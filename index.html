@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Comprehensive School Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361EE;
+            --secondary: #3A0CA3;
+            --accent: #F72585;
+            --dark: #212529;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            animation: fadeIn 1s ease-out;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 1rem auto 0;
+            opacity: 0.9;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            animation: fadeIn 0.6s ease-out;
+            transform-style: preserve-3d;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(67, 97, 238, 0.2);
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 1rem;
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+            margin: 0;
+            position: relative;
+            color: var(--dark);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+                padding: 4rem 1rem;
+            }
+        }
+        
+        /* Animation delays for cards */
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Presentation category colors */
+        .presentation-1 .card-header { background: linear-gradient(135deg, #4361EE, #3A0CA3); }
+        .presentation-2 .card-header { background: linear-gradient(135deg, #7209B7, #560BAD); }
+        .presentation-3 .card-header { background: linear-gradient(135deg, #F72585, #B5179E); }
+        .presentation-4 .card-header { background: linear-gradient(135deg, #4CC9F0, #4895EF); }
+        
+        /* Video category colors */
+        .video-1 .card-header { background: linear-gradient(135deg, #2EC4B6, #1A936F); }
+        .video-2 .card-header { background: linear-gradient(135deg, #FF9F1C, #FF7D00); }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>My Academic Portfolio</h1>
+        <p>A comprehensive showcase of my school projects, presentations, and creative videos</p>
+    </section>
+    
+    <div class="container">
+        <div class="section-title">
+            <h2>Academic Presentations</h2>
+        </div>
+        
+        <div class="grid">
+            <!-- Presentation 1 -->
+            <div class="card presentation-1">
+                <div class="card-header">
+                    <i class="fas fa-atom"></i>
+                    <h2>Science Research Project</h2>
+                </div>
+                <div class="card-body">
+                    <p>An in-depth exploration of quantum physics principles and their real-world applications in modern technology.</p>
+                    <a href="LINK_TO_PRESENTATION_1" class="btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Presentation
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Presentation 2 -->
+            <div class="card presentation-2">
+                <div class="card-header">
+                    <i class="fas fa-globe-americas"></i>
+                    <h2>World History Analysis</h2>
+                </div>
+                <div class="card-body">
+                    <p>Examining the geopolitical consequences of the Industrial Revolution across different continents.</p>
+                    <a href="LINK_TO_PRESENTATION_2" class="btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Presentation
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Presentation 3 -->
+            <div class="card presentation-3">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar"></i>
+                    <h2>Mathematics in Nature</h2>
+                </div>
+                <div class="card-body">
+                    <p>Demonstrating Fibonacci sequences and the Golden Ratio in biological systems and natural phenomena.</p>
+                    <a href="LINK_TO_PRESENTATION_3" class="btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Presentation
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Presentation 4 -->
+            <div class="card presentation-4">
+                <div class="card-header">
+                    <i class="fas fa-book-open"></i>
+                    <h2>Literary Analysis</h2>
+                </div>
+                <div class="card-body">
+                    <p>Critical examination of symbolism in 20th century dystopian novels and their contemporary relevance.</p>
+                    <a href="LINK_TO_PRESENTATION_4" class="btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Presentation
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <h2>Creative Video Projects</h2>
+        </div>
+        
+        <div class="grid">
+            <!-- Video 1 - Self Introduction -->
+            <div class="card video-1">
+                <div class="card-header">
+                    <i class="fas fa-user"></i>
+                    <h2>Meet the Creator</h2>
+                </div>
+                <div class="card-body">
+                    <p>A personal introduction showcasing my hobbies, interests, and academic aspirations. Features my passion for photography, coding, and environmental activism.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_1" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 2 - 24 Hours in the World -->
+            <div class="card video-2">
+                <div class="card-header">
+                    <i class="fas fa-globe"></i>
+                    <h2>24 Hours Around the World</h2>
+                </div>
+                <div class="card-body">
+                    <p>A documentary-style compilation showing simultaneous events across different time zones - from sunrise rituals to nighttime cityscapes, capturing the diversity of human experience in a single day.</p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_2" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <h3>My School Project Portfolio</h3>
+            <p>Created with dedication throughout the academic year 2023-2024</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2024 All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
