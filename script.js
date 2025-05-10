@@ -1,3 +1,7 @@
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'b') createPongGame();
+});
+
 // Magic Sparkle Cursor
 const cursor = document.querySelector('.cursor');
 
